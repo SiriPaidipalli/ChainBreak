@@ -144,8 +144,6 @@ The runner checks actual program state and reports failures with a nonzero exit 
 
 ![ChainBreak Architecture](docs/chainbreak-architecture.png)
 
-*Architecture image placeholder; the image has not yet been created.*
-
 Telemetry → Evidence → Attack Graph → Risk → Containment Optimization → Human Approval → Simulation → Verification → Audit.
 
 The Streamlit dashboard and CLI reuse the same backend modules. The workflow connects analysis and recommendation to explicit approval, copied-graph simulation, independent verification, and audit events.
