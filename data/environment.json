@@ -1,0 +1,99 @@
+{
+  "environment": "ChainBreak Synthetic Enterprise",
+  "protected_asset": "customer-db",
+
+  "entities": [
+    {
+      "id": "alice",
+      "type": "user",
+      "name": "Alice",
+      "department": "Engineering"
+    },
+    {
+      "id": "alice-laptop",
+      "type": "host",
+      "name": "Alice-Laptop"
+    },
+    {
+      "id": "dev-server",
+      "type": "host",
+      "name": "Dev-Server"
+    },
+    {
+      "id": "deploy-token",
+      "type": "credential",
+      "name": "Deployment Token"
+    },
+    {
+      "id": "deploy-service",
+      "type": "service",
+      "name": "Deployment Service"
+    },
+    {
+      "id": "backup-token",
+      "type": "credential",
+      "name": "Backup Service Token"
+    },
+    {
+      "id": "backup-service",
+      "type": "service",
+      "name": "Backup Service"
+    },
+    {
+      "id": "customer-db",
+      "type": "asset",
+      "name": "Customer Database",
+      "criticality": "critical"
+    }
+  ],
+
+  "relationships": [
+    {
+      "source": "alice",
+      "target": "alice-laptop",
+      "type": "uses"
+    },
+    {
+      "source": "alice-laptop",
+      "target": "dev-server",
+      "type": "can_access"
+    },
+
+    {
+      "source": "dev-server",
+      "target": "deploy-token",
+      "type": "stores_credential"
+    },
+    {
+      "source": "deploy-token",
+      "target": "deploy-service",
+      "type": "authenticates_to"
+    },
+    {
+      "source": "deploy-service",
+      "target": "customer-db",
+      "type": "can_access"
+    },
+
+    {
+      "source": "dev-server",
+      "target": "backup-token",
+      "type": "stores_credential"
+    },
+    {
+      "source": "backup-token",
+      "target": "backup-service",
+      "type": "authenticates_to"
+    },
+    {
+      "source": "backup-service",
+      "target": "customer-db",
+      "type": "can_access"
+    }
+  ],
+
+  "incident": {
+    "compromised_entity": "alice",
+    "description": "Alice's enterprise identity has been compromised."
+  }
+}

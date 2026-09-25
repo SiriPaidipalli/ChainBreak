@@ -1,0 +1,15 @@
+{
+  "synthetic": true,
+  "description": "Hand-authored telemetry for the Alice incident; not live telemetry or proof of database compromise.",
+  "events": [
+    {"event_id": "evt-001", "timestamp": "2026-09-25T09:00:00Z", "source": "synthetic_identity_log", "event_type": "unusual_login_success", "actor": "alice", "target": "alice-laptop", "severity": "high", "description": "Alice successfully signed into Alice-Laptop from an unfamiliar source (192.0.2.40)."},
+    {"event_id": "evt-002", "timestamp": "2026-09-25T09:02:00Z", "source": "synthetic_endpoint_log", "event_type": "suspicious_powershell", "actor": "alice", "target": "alice-laptop", "severity": "high", "description": "An unusual encoded PowerShell process ran in Alice's session on Alice-Laptop."},
+    {"event_id": "evt-003", "timestamp": "2026-09-25T09:04:00Z", "source": "synthetic_ssh_log", "event_type": "ssh_login_success", "actor": "alice-laptop", "target": "dev-server", "severity": "medium", "description": "An SSH session from Alice-Laptop authenticated to Dev-Server using Alice's identity."},
+    {"event_id": "evt-004", "timestamp": "2026-09-25T09:06:00Z", "source": "synthetic_file_audit", "event_type": "credential_file_read", "actor": "dev-server", "target": "deploy-token", "severity": "high", "description": "A process in the suspicious session read a plaintext configuration file containing Deployment Token on Dev-Server."},
+    {"event_id": "evt-005", "timestamp": "2026-09-25T09:07:00Z", "source": "synthetic_file_audit", "event_type": "credential_file_read", "actor": "dev-server", "target": "backup-token", "severity": "high", "description": "A process in the suspicious session read a plaintext configuration file containing Backup Service Token on Dev-Server."},
+    {"event_id": "evt-006", "timestamp": "2026-09-25T09:09:00Z", "source": "synthetic_service_auth", "event_type": "token_authentication", "actor": "deploy-token", "target": "deploy-service", "severity": "high", "description": "Deployment Service accepted Deployment Token in a session associated with Dev-Server."},
+    {"event_id": "evt-007", "timestamp": "2026-09-25T09:10:00Z", "source": "synthetic_service_auth", "event_type": "token_authentication", "actor": "backup-token", "target": "backup-service", "severity": "high", "description": "Backup Service accepted Backup Service Token in a session associated with Dev-Server."},
+    {"event_id": "evt-008", "timestamp": "2026-09-25T09:12:00Z", "source": "synthetic_database_audit", "event_type": "database_access_attempt", "actor": "deploy-service", "target": "customer-db", "severity": "high", "description": "Deployment Service attempted access to Customer Database; successful data access is not established."},
+    {"event_id": "evt-009", "timestamp": "2026-09-25T09:13:00Z", "source": "synthetic_database_audit", "event_type": "database_access_attempt", "actor": "backup-service", "target": "customer-db", "severity": "high", "description": "Backup Service attempted access to Customer Database; successful data access is not established."}
+  ]
+}

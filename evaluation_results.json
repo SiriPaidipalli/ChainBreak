@@ -1,0 +1,321 @@
+{
+  "overall_passed": true,
+  "scenarios": [
+    {
+      "checks": {
+        "asset_preserved": true,
+        "asset_unreachable": true,
+        "no_disruptive_recommendation": true,
+        "no_response": true,
+        "original_unchanged": true
+      },
+      "expected_behavior": "No reachable protected asset, no disruptive recommendation, no response.",
+      "observed": {
+        "actions_applied": [],
+        "analyst_approval_required": false,
+        "confidence": 0.0,
+        "containment_status": "NOT REQUIRED",
+        "disruptive_containment_recommended": false,
+        "evidence_count": 0,
+        "evidence_coverage": 0.0,
+        "operational_cost": 0,
+        "original_graph_unchanged": true,
+        "protected_asset_preserved": true,
+        "protected_asset_reachable": false,
+        "recommended_action_ids": [],
+        "recommended_cost": 0,
+        "telemetry_incomplete": true,
+        "viable_paths_after": 0,
+        "viable_paths_before": 0
+      },
+      "passed": true,
+      "scenario": "Normal activity"
+    },
+    {
+      "checks": {
+        "approval_enforced": true,
+        "approved_actions_applied": true,
+        "asset_preserved": true,
+        "both_paths_evidenced": true,
+        "computed_token_recommendation": true,
+        "copied_graph": true,
+        "cost_three": true,
+        "explicit_matching_approval": true,
+        "original_unchanged": true,
+        "recalculated_result": true,
+        "two_initial_paths": true,
+        "verified_zero_paths": true
+      },
+      "expected_behavior": "Two evidenced paths; approved token combination costs 3 and leaves zero paths.",
+      "observed": {
+        "actions_applied": [
+          "revoke-backup",
+          "revoke-deploy"
+        ],
+        "analyst_approval_required": true,
+        "approval_status": "granted",
+        "approved_action_ids": [
+          "revoke-backup",
+          "revoke-deploy"
+        ],
+        "confidence": 100.0,
+        "containment_status": "VERIFIED",
+        "disruptive_containment_recommended": true,
+        "evidence_count": 9,
+        "evidence_coverage": 1.0,
+        "operational_cost": 3,
+        "original_graph_unchanged": true,
+        "protected_asset_preserved": true,
+        "protected_asset_reachable": true,
+        "recommended_action_ids": [
+          "revoke-backup",
+          "revoke-deploy"
+        ],
+        "recommended_cost": 3,
+        "remaining_paths": [],
+        "remaining_routes": [],
+        "telemetry_incomplete": false,
+        "viable_paths_after": 0,
+        "viable_paths_before": 2
+      },
+      "passed": true,
+      "scenario": "Active compromise"
+    },
+    {
+      "checks": {
+        "asset_preserved": true,
+        "asset_unreachable": true,
+        "no_disruptive_recommendation": true,
+        "no_response": true,
+        "original_unchanged": true,
+        "suspicious_evidence_present": true
+      },
+      "expected_behavior": "Suspicious identity evidence exists but no route or disruptive response is warranted.",
+      "observed": {
+        "actions_applied": [],
+        "analyst_approval_required": false,
+        "confidence": 0.0,
+        "containment_status": "NOT REQUIRED",
+        "disruptive_containment_recommended": false,
+        "evidence_count": 1,
+        "evidence_coverage": 0.0,
+        "operational_cost": 0,
+        "original_graph_unchanged": true,
+        "protected_asset_preserved": true,
+        "protected_asset_reachable": false,
+        "recommended_action_ids": [],
+        "recommended_cost": 0,
+        "telemetry_incomplete": true,
+        "viable_paths_after": 0,
+        "viable_paths_before": 0
+      },
+      "passed": true,
+      "scenario": "Suspicious but non-reachable"
+    },
+    {
+      "checks": {
+        "asset_preserved": true,
+        "confidence_lower": true,
+        "coverage_lower": true,
+        "missing_explicit": true,
+        "no_invented_evidence": true,
+        "no_unapproved_response": true,
+        "original_unchanged": true,
+        "paths_reconstructed": true
+      },
+      "expected_behavior": "Paths remain reconstructable; coverage and confidence decrease; telemetry is explicitly incomplete; no response without approval.",
+      "observed": {
+        "actions_applied": [],
+        "analyst_approval_required": true,
+        "confidence": 50.0,
+        "containment_status": "NOT EXECUTED",
+        "disruptive_containment_recommended": true,
+        "evidence_count": 5,
+        "evidence_coverage": 0.5,
+        "full_confidence": 100.0,
+        "full_evidence_coverage": 1.0,
+        "operational_cost": 3,
+        "original_graph_unchanged": true,
+        "protected_asset_preserved": true,
+        "protected_asset_reachable": true,
+        "recommended_action_ids": [
+          "revoke-backup",
+          "revoke-deploy"
+        ],
+        "recommended_cost": 3,
+        "telemetry_incomplete": true,
+        "viable_paths_after": 2,
+        "viable_paths_before": 2
+      },
+      "passed": true,
+      "scenario": "Missing telemetry"
+    },
+    {
+      "checks": {
+        "alternate_route_survives": true,
+        "approval_enforced": true,
+        "asset_preserved": true,
+        "both_paths_evidenced": true,
+        "copied_graph": true,
+        "explicit_matching_approval": true,
+        "explicitly_incomplete": true,
+        "only_deployment_revoked": true,
+        "original_unchanged": true,
+        "recalculated_result": true,
+        "two_initial_paths": true
+      },
+      "expected_behavior": "Approved Deployment Token revocation leaves one Backup Service route and reports INCOMPLETE.",
+      "observed": {
+        "actions_applied": [
+          "revoke-deploy"
+        ],
+        "analyst_approval_required": true,
+        "approval_status": "granted",
+        "approved_action_ids": [
+          "revoke-deploy"
+        ],
+        "confidence": 100.0,
+        "containment_status": "INCOMPLETE",
+        "disruptive_containment_recommended": true,
+        "evidence_count": 9,
+        "evidence_coverage": 1.0,
+        "operational_cost": 1,
+        "original_graph_unchanged": true,
+        "protected_asset_preserved": true,
+        "protected_asset_reachable": true,
+        "recommended_action_ids": [
+          "revoke-backup",
+          "revoke-deploy"
+        ],
+        "recommended_cost": 3,
+        "remaining_paths": [
+          [
+            "alice",
+            "alice-laptop",
+            "dev-server",
+            "backup-token",
+            "backup-service",
+            "customer-db"
+          ]
+        ],
+        "remaining_routes": [
+          "Alice -> Alice-Laptop -> Dev-Server -> Backup Service Token -> Backup Service -> Customer Database"
+        ],
+        "telemetry_incomplete": false,
+        "viable_paths_after": 1,
+        "viable_paths_before": 2
+      },
+      "passed": true,
+      "scenario": "Partial containment"
+    },
+    {
+      "checks": {
+        "approval_enforced": true,
+        "approved_actions_applied": true,
+        "asset_preserved": true,
+        "both_paths_evidenced": true,
+        "computed_token_recommendation": true,
+        "copied_graph": true,
+        "cost_three": true,
+        "explicit_matching_approval": true,
+        "original_unchanged": true,
+        "recalculated_result": true,
+        "two_initial_paths": true,
+        "verified_zero_paths": true
+      },
+      "expected_behavior": "Explicit approval is enforced; cost-3 token combination verifies 2 to 0 paths on a copy.",
+      "observed": {
+        "actions_applied": [
+          "revoke-backup",
+          "revoke-deploy"
+        ],
+        "analyst_approval_required": true,
+        "approval_status": "granted",
+        "approved_action_ids": [
+          "revoke-backup",
+          "revoke-deploy"
+        ],
+        "confidence": 100.0,
+        "containment_status": "VERIFIED",
+        "disruptive_containment_recommended": true,
+        "evidence_count": 9,
+        "evidence_coverage": 1.0,
+        "operational_cost": 3,
+        "original_graph_unchanged": true,
+        "protected_asset_preserved": true,
+        "protected_asset_reachable": true,
+        "recommended_action_ids": [
+          "revoke-backup",
+          "revoke-deploy"
+        ],
+        "recommended_cost": 3,
+        "remaining_paths": [],
+        "remaining_routes": [],
+        "telemetry_incomplete": false,
+        "viable_paths_after": 0,
+        "viable_paths_before": 2
+      },
+      "passed": true,
+      "scenario": "Recommended containment"
+    },
+    {
+      "checks": {
+        "asset_preserved": true,
+        "original_unchanged": true,
+        "recommendation_cheaper_and_complete": true,
+        "three_complete_alternatives": true
+      },
+      "expected_behavior": "Account, laptop, and server actions also contain the attack but cost more than the computed recommendation.",
+      "observed": {
+        "actions_applied": [],
+        "alternatives": [
+          {
+            "action": "Disable Alice account",
+            "containment_complete": true,
+            "cost_reduction": 2,
+            "operational_cost": 5,
+            "paths_after": 0,
+            "reduction_percent": 40.0
+          },
+          {
+            "action": "Isolate Alice-Laptop",
+            "containment_complete": true,
+            "cost_reduction": 5,
+            "operational_cost": 8,
+            "paths_after": 0,
+            "reduction_percent": 62.5
+          },
+          {
+            "action": "Isolate Dev-Server",
+            "containment_complete": true,
+            "cost_reduction": 17,
+            "operational_cost": 20,
+            "paths_after": 0,
+            "reduction_percent": 85.0
+          }
+        ],
+        "analyst_approval_required": true,
+        "confidence": 100.0,
+        "containment_status": "NOT EXECUTED",
+        "disruptive_containment_recommended": true,
+        "evidence_count": 9,
+        "evidence_coverage": 1.0,
+        "operational_cost": 3,
+        "original_graph_unchanged": true,
+        "protected_asset_preserved": true,
+        "protected_asset_reachable": true,
+        "recommended_action_ids": [
+          "revoke-backup",
+          "revoke-deploy"
+        ],
+        "recommended_cost": 3,
+        "telemetry_incomplete": false,
+        "viable_paths_before": 2
+      },
+      "passed": true,
+      "scenario": "High-impact alternatives"
+    }
+  ],
+  "scenarios_passed": 7,
+  "scenarios_total": 7
+}

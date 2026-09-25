@@ -1,0 +1,9 @@
+[
+  {"name": "Normal activity", "kind": "normal", "remove_edges": [["alice", "alice-laptop"]], "telemetry": "none", "expected": "No reachable protected asset, no disruptive recommendation, no response."},
+  {"name": "Active compromise", "kind": "positive", "remove_edges": [], "telemetry": "full", "expected": "Two evidenced paths; approved token combination costs 3 and leaves zero paths."},
+  {"name": "Suspicious but non-reachable", "kind": "negative", "remove_edges": [["deploy-service", "customer-db"], ["backup-service", "customer-db"]], "telemetry": "suspicious", "expected": "Suspicious identity evidence exists but no route or disruptive response is warranted."},
+  {"name": "Missing telemetry", "kind": "missing", "remove_edges": [], "telemetry": "missing", "expected": "Paths remain reconstructable; coverage and confidence decrease; telemetry is explicitly incomplete; no response without approval."},
+  {"name": "Partial containment", "kind": "partial", "remove_edges": [], "telemetry": "full", "expected": "Approved Deployment Token revocation leaves one Backup Service route and reports INCOMPLETE."},
+  {"name": "Recommended containment", "kind": "success", "remove_edges": [], "telemetry": "full", "expected": "Explicit approval is enforced; cost-3 token combination verifies 2 to 0 paths on a copy."},
+  {"name": "High-impact alternatives", "kind": "comparison", "remove_edges": [], "telemetry": "full", "expected": "Account, laptop, and server actions also contain the attack but cost more than the computed recommendation."}
+]
