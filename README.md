@@ -182,8 +182,6 @@ ChainBreak/
     └── test_evaluation.py
 ```
 
-The architecture image path above is planned and is not part of the current file tree.
-
 ## Running ChainBreak
 
 Use Python 3.9 or later. Run these commands from the repository root.
