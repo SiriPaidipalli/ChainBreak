@@ -261,8 +261,6 @@ ChainBreak was developed for **AI Defense Lab 2026**.
 
 The declared open-source/runtime dependencies are Streamlit 1.49.1 and the Graphviz Python package 0.21, as listed in `requirements.txt`. Synthetic data was created for the project.
 
-**Participant review required:** confirm any submission-specific disclosures about pre-existing work, development assistance, contributor attribution, and third-party assets. The repository does not establish a complete provenance or development timeline; no claims about those matters are made here.
-
 ## License
 
 ChainBreak is distributed under the MIT License. See [LICENSE](LICENSE).
