@@ -6,6 +6,10 @@ ChainBreak reconstructs viable attacker paths through a synthetic enterprise env
 
 **Synthetic enterprise environment · Simulation only**
 
+## Demo
+
+🎥 [Watch the ChainBreak Demo on YouTube](https://youtu.be/5japZL1Lotc)
+
 ## The Problem
 
 A SOC may know an incident requires containment while having several possible responses: disable an account, isolate a workstation or server, revoke a credential/token, or disable a service. Aggressive containment can stop an attack while unnecessarily disrupting legitimate operations.
